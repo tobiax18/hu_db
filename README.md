@@ -1,249 +1,265 @@
-
-# Hu 3 – Gestión de Contenido y Usuarios en MongoDB  
-Sistema: StreamHub  
-Base de datos: streamhub_db  
-
----
-
-## 📌 Descripción General
-
-Este proyecto implementa un modelo NoSQL en MongoDB para una plataforma de streaming ficticia llamada **StreamHub**.
-
-El sistema permite:
-
-- Gestionar usuarios
-- Administrar contenido audiovisual (películas y series)
-- Registrar valoraciones
-- Realizar consultas avanzadas
-- Aplicar índices para optimización
-- Ejecutar agregaciones para generar métricas
-
-Se aplican conceptos fundamentales de MongoDB como:
-
-- CRUD completo
-- Operadores de consulta
-- Índices
-- Pipelines de agregación
+# HU 3 – Content and User Management in MongoDB
+**System:** StreamHub  
+**Database:** `streamhub_db`
 
 ---
 
-# 🧠 1. Modelado NoSQL
+# 📌 Overview
 
-A diferencia de bases de datos relacionales, MongoDB trabaja con documentos JSON flexibles.
+This project implements a **NoSQL data model using MongoDB** for a fictional streaming platform called **StreamHub**.
 
-Se definieron las siguientes colecciones:
+The system allows:
 
-## 📂 Colección: usuarios
+- Managing users
+- Managing audiovisual content (movies and series)
+- Recording user ratings
+- Performing advanced queries
+- Applying indexes for optimization
+- Executing aggregations to generate metrics
 
-Representa a las personas registradas en la plataforma.
+The project applies core MongoDB concepts such as:
 
-Campos principales:
-
-- nombre
-- email
-- edad
-- pais
-- fechaRegistro
-- historialVisualizacion (array)
-- activo (boolean)
-
-Justificación:
-Permite almacenar datos dinámicos y listas de visualización sin necesidad de tablas intermedias.
+- Full CRUD operations
+- Query operators
+- Indexes
+- Aggregation pipelines
 
 ---
 
-## 📂 Colección: contenidos
+# 🧠 1. NoSQL Data Modeling
 
-Representa películas y series disponibles en la plataforma.
+Unlike relational databases, **MongoDB works with flexible JSON-like documents**.
 
-Campos:
-
-- titulo
-- tipo (pelicula / serie)
-- genero (array)
-- duracionMinutos
-- anio
-- director
-- calificacionPromedio
-- disponible
-
-Justificación:
-Se utiliza un arreglo en "genero" para permitir múltiples categorías sin tablas relacionales.
+The following collections were defined:
 
 ---
 
-## 📂 Colección: valoraciones
+## 📂 Collection: `usuarios`
 
-Representa reseñas y puntuaciones realizadas por usuarios.
+Represents the users registered on the platform.
 
-Campos:
+### Main fields
 
-- usuarioId
-- contenidoId
-- puntuacion
-- comentario
-- fecha
+- `nombre`
+- `email`
+- `edad`
+- `pais`
+- `fechaRegistro`
+- `historialVisualizacion` (array)
+- `activo` (boolean)
 
-Justificación:
-Se mantiene separada para permitir múltiples valoraciones por usuario y facilitar agregaciones.
+### Justification
 
----
-
-# 📥 2. Inserción de datos
-
-Se utilizaron:
-
-- insertOne()
-- insertMany()
-
-Se incluyeron:
-
-- Películas y series
-- Usuarios de diferentes países
-- Diferentes duraciones
-- Valoraciones con comentarios
-
-Esto permite realizar consultas y agregaciones variadas.
+This structure allows storing **dynamic data and viewing history lists** without requiring intermediate relational tables.
 
 ---
 
-# 🔎 3. Consultas con operadores
+## 📂 Collection: `contenidos`
 
-Se aplicaron los siguientes operadores:
+Represents the **movies and series available on the platform**.
 
-| Operador | Uso |
-|----------|------|
-| $gt | Mayor que |
-| $lt | Menor que |
-| $eq | Igual |
-| $in | Coincidencia en arreglo |
-| $and | Condiciones múltiples |
-| $or | Alternativas |
-| $regex | Búsqueda por texto |
+### Fields
 
-Ejemplos implementados:
+- `titulo`
+- `tipo` (movie / series)
+- `genero` (array)
+- `duracionMinutos`
+- `anio`
+- `director`
+- `calificacionPromedio`
+- `disponible`
 
-- Películas con duración > 120 minutos
-- Usuarios mayores de 30
-- Contenido que contiene cierta palabra en el título
-- Filtros combinados por tipo y año
+### Justification
+
+The `genero` field uses an **array structure** to allow multiple categories without the need for relational join tables.
 
 ---
 
-# ✏ 4. Actualizaciones y Eliminaciones
+## 📂 Collection: `valoraciones`
 
-Se implementó:
+Represents **reviews and ratings made by users**.
 
-- updateOne()
-- updateMany()
-- deleteOne()
+### Fields
 
-Casos aplicados:
+- `usuarioId`
+- `contenidoId`
+- `puntuacion`
+- `comentario`
+- `fecha`
 
-- Actualizar calificación promedio
-- Desactivar usuarios por país
-- Eliminar un usuario específico
+### Justification
 
----
+This collection is kept separate to:
 
-# 🚀 5. Índices para optimización
-
-Se crearon índices en:
-
-- titulo
-- genero
-
-Comandos utilizados:
-
-- createIndex()
-- getIndexes()
-
-Justificación:
-
-Estos campos son consultados frecuentemente en búsquedas y filtros, por lo que indexarlos mejora significativamente el rendimiento en grandes volúmenes de datos.
+- Allow **multiple ratings per user**
+- Facilitate **aggregations and analytical queries**
 
 ---
 
-# 📊 6. Agregaciones (Pipelines)
+# 📥 2. Data Insertion
 
-Se implementaron 2 pipelines obligatorios utilizando:
+The following MongoDB commands were used:
 
-- $match
-- $group
-- $sort
-- $project
-- $unwind
+- `insertOne()`
+- `insertMany()`
 
-## 🔹 Agregación 1
+The inserted dataset includes:
 
-Promedio de calificación por tipo de contenido.
+- Movies and series
+- Users from different countries
+- Content with different durations
+- Ratings with comments
 
-Permite analizar qué tipo (película o serie) tiene mejor valoración.
-
----
-
-## 🔹 Agregación 2
-
-Cantidad de contenidos por género.
-
-Se utiliza $unwind para descomponer el arreglo de géneros y luego agrupar.
-
-Permite obtener métricas de popularidad por categoría.
+This allows performing **diverse queries and aggregation operations**.
 
 ---
 
-# 🛠 Herramientas utilizadas
+# 🔎 3. Queries Using Operators
+
+The following MongoDB operators were applied:
+
+| Operator | Purpose |
+|--------|--------|
+| `$gt` | Greater than |
+| `$lt` | Less than |
+| `$eq` | Equal |
+| `$in` | Match within an array |
+| `$and` | Multiple conditions |
+| `$or` | Alternative conditions |
+| `$regex` | Text search |
+
+### Example queries implemented
+
+- Movies with **duration greater than 120 minutes**
+- Users **older than 30**
+- Content containing **specific keywords in the title**
+- Combined filters based on **type and year**
+
+---
+
+# ✏ 4. Updates and Deletions
+
+The following operations were implemented:
+
+- `updateOne()`
+- `updateMany()`
+- `deleteOne()`
+
+### Use cases
+
+- Updating the **average rating of content**
+- Deactivating users by **country**
+- Deleting a **specific user**
+
+---
+
+# 🚀 5. Indexes for Optimization
+
+Indexes were created on the following fields:
+
+- `titulo`
+- `genero`
+
+### Commands used
+
+- `createIndex()`
+- `getIndexes()`
+
+### Justification
+
+These fields are **frequently used in search queries and filters**, so indexing them significantly improves **performance when working with large datasets**.
+
+---
+
+# 📊 6. Aggregations (Pipelines)
+
+Two required **aggregation pipelines** were implemented using the following stages:
+
+- `$match`
+- `$group`
+- `$sort`
+- `$project`
+- `$unwind`
+
+---
+
+## 🔹 Aggregation 1
+
+**Average rating by content type**
+
+This aggregation calculates the **average rating grouped by content type (movie or series)**.
+
+Purpose:
+
+Analyze **which type of content receives better ratings from users**.
+
+---
+
+## 🔹 Aggregation 2
+
+**Number of contents per genre**
+
+This aggregation uses `$unwind` to **decompose the genre array** and then groups the results.
+
+Purpose:
+
+Generate **popularity metrics by genre or category**.
+
+---
+
+# 🛠 Tools Used
 
 - MongoDB Community Edition
 - MongoDB Compass
-- Mongosh (consola integrada)
-- Editor de texto (VS Code)
+- Mongosh (integrated shell)
+- Text Editor (VS Code)
 
 ---
 
-# ▶ Cómo ejecutar el proyecto (Paso a paso)
+# ▶ How to Run the Project (Step by Step)
 
-## Paso 1 – Instalar MongoDB
+## Step 1 – Install MongoDB
 
-Si no está instalado:
+If MongoDB is not installed:
 
-Descargar desde:
+Download it from:
+
 https://www.mongodb.com/try/download/community
 
-Instalar con configuración por defecto.
+Install using the **default configuration**.
 
 ---
 
-## Paso 2 – Abrir MongoDB Compass
+## Step 2 – Open MongoDB Compass
 
-1. Ejecutar MongoDB Compass.
-2. Conectarse al servidor local:
+1. Launch **MongoDB Compass**.
+2. Connect to the local server:
    mongodb://localhost:27017
 
 ---
 
-## Paso 3 – Crear base de datos
+## Step 3 – Create the Database
 
-1. Clic en "Create Database"
-2. Nombre:  
+1. Click **"Create Database"**
+2. Database name:
    streamhub_db
-3. Crear colección inicial (por ejemplo: usuarios)
+3. Create an initial collection (for example: `usuarios`).
 
 ---
 
-## Paso 4 – Ejecutar el script
+## Step 4 – Run the Script
 
-1. Ir a la pestaña "MONGOSH".
-2. Abrir el archivo:
-
+1. Go to the **MONGOSH** tab.
+2. Open the file:
    streamhub_script.js
-
-3. Copiar TODO el contenido.
-4. Pegar en la consola.
-5. Presionar Enter.
+3. Copy **all the content**.
+4. Paste it into the console.
+5. Press **Enter** to execute the script.
 
 ---
 
-## Reflexión Técnica
+# 🧾 Technical Reflection
 
-MongoDB permitió modelar datos semiestructurados con flexibilidad, evitando la necesidad de normalización estricta como en bases de datos relacionales. El uso de arreglos y documentos anidados facilitó el modelado del dominio StreamHub.
+MongoDB allowed modeling **semi-structured data with great flexibility**, avoiding the strict normalization required in relational databases.
+
+The use of **arrays and nested documents** simplified the representation of the **StreamHub domain**, making it easier to manage elements such as viewing history, content categories, and user ratings.
