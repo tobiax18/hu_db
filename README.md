@@ -1,167 +1,237 @@
-# Trabajo 2 – Sistema Académico en SQL  
-Base de Datos: gestion_academica_universidad
-
-## 📌 Objetivo
-
-Diseñar e implementar una base de datos académica que gestione estudiantes, docentes, cursos e inscripciones, aplicando SQL (DDL, DML, DQL, DCL y TCL) y consultas de análisis para administrar información académica y evaluar el rendimiento estudiantil.
+# Assignment 2 – Academic System in SQL  
+**Database:** gestion_academica_universidad
 
 ---
 
-## 🗄 Estructura de la Base de Datos
+# 📌 Objective
 
-Se creó la base de datos:
+Design and implement an **academic database system** to manage **students, teachers, courses, and enrollments** using SQL.
 
+The project applies different SQL components:
+
+- **DDL (Data Definition Language)**
+- **DML (Data Manipulation Language)**
+- **DQL (Data Query Language)**
+- **DCL (Data Control Language)**
+- **TCL (Transaction Control Language)**
+
+The database also includes analytical queries to manage academic information and evaluate student performance.
+
+---
+
+# 🗄 Database Structure
+
+The database created is:
+
+```
 gestion_academica_universidad
+```
 
-Tablas implementadas:
+## Implemented Tables
 
-- estudiantes
-- docentes
-- cursos
-- inscripciones
+- **estudiantes** (students)
+- **docentes** (teachers)
+- **cursos** (courses)
+- **inscripciones** (enrollments)
 
-Cada tabla incluye:
+Each table includes:
 
-- ✔ Claves primarias (PRIMARY KEY)
-- ✔ Claves foráneas (FOREIGN KEY)
-- ✔ Restricciones NOT NULL
-- ✔ Restricciones UNIQUE
-- ✔ Restricciones CHECK
-- ✔ Reglas ON DELETE (SET NULL y CASCADE)
+✔ **Primary Keys (PRIMARY KEY)**  
+✔ **Foreign Keys (FOREIGN KEY)**  
+✔ **NOT NULL constraints**  
+✔ **UNIQUE constraints**  
+✔ **CHECK constraints**  
+✔ **ON DELETE rules (SET NULL and CASCADE)**
 
----
-
-## 📥 Inserción de Datos
-
-Se insertaron:
-
-- 5 estudiantes
-- 3 docentes
-- 4 cursos
-- 8 inscripciones
-
-Los datos permiten realizar consultas de análisis y validación de relaciones.
+These constraints ensure **data integrity and consistency across the database**.
 
 ---
 
-## 🔎 Consultas Implementadas
+# 📥 Data Insertion
 
-Se realizaron consultas utilizando:
+The following sample data was inserted:
 
-- JOIN
-- GROUP BY
-- HAVING
-- AVG
-- COUNT
-- ROUND
-- Subconsultas (IN / EXISTS)
-- ALTER TABLE
-- Vista académica
+- **5 students**
+- **3 teachers**
+- **4 courses**
+- **8 enrollments**
 
-Se creó la vista:
+The data allows the execution of **analytical queries and validation of relational integrity**.
 
+---
+
+# 🔎 Implemented Queries
+
+The project includes queries using:
+
+- **JOIN**
+- **GROUP BY**
+- **HAVING**
+- **AVG**
+- **COUNT**
+- **ROUND**
+- **Subqueries (IN / EXISTS)**
+- **ALTER TABLE**
+
+These queries allow analysis of academic data such as student performance and course statistics.
+
+---
+
+# 📊 Academic View
+
+A view was created to simplify the visualization of academic history:
+
+```
 vista_historial_academico
+```
 
-La cual muestra:
+This view displays:
 
-- Nombre del estudiante
-- Curso
-- Docente
-- Semestre
-- Calificación final
+- Student name
+- Course name
+- Teacher
+- Semester
+- Final grade
+
+The view allows easier access to academic records without directly querying multiple tables.
 
 ---
 
-## 🔐 Control de Acceso
+# 🔐 Access Control
 
-Se creó el rol:
+A database role was created:
 
+```
 revisor_academico
+```
 
-Se aplicaron:
+The following permissions were applied:
 
-- GRANT SELECT sobre la vista
-- REVOKE de permisos de modificación en inscripciones
+- **GRANT SELECT** on the academic view
+- **REVOKE modification permissions** on the enrollments table
 
----
-
-## 🔄 Transacciones
-
-Se probaron transacciones utilizando:
-
-- BEGIN
-- SAVEPOINT
-- ROLLBACK
-- COMMIT
-
-Se verificó que los cambios puedan revertirse correctamente antes de confirmar.
+This simulates a **read-only academic reviewer role**.
 
 ---
 
-## 🧪 Pruebas Realizadas
+# 🔄 Transactions
 
-Se validó que:
+Transaction management was tested using:
 
-- ✔ Las tablas fueron creadas correctamente.
-- ✔ Las relaciones entre tablas funcionan.
-- ✔ Las restricciones (CHECK, UNIQUE, FK) se aplican.
-- ✔ Las consultas devuelven resultados correctos.
-- ✔ La vista muestra la información esperada.
-- ✔ Las transacciones permiten revertir cambios.
-- ✔ Las reglas ON DELETE funcionan según lo definido.
+```
+BEGIN
+SAVEPOINT
+ROLLBACK
+COMMIT
+```
 
-Todas las pruebas fueron ejecutadas en PostgreSQL utilizando pgAdmin.
+These commands ensure that changes can be **reverted before being permanently saved**, maintaining database consistency.
 
 ---
 
-## 📂 Archivo Principal
+# 🧪 Tests Performed
 
-El script completo se encuentra en:
+The following validations were successfully performed:
 
+✔ Tables were created correctly  
+✔ Relationships between tables work as expected  
+✔ Constraints (**CHECK, UNIQUE, FK**) are enforced  
+✔ Queries return correct results  
+✔ The view displays the expected information  
+✔ Transactions allow reverting changes  
+✔ **ON DELETE rules** behave as defined  
+
+All tests were executed using **PostgreSQL with pgAdmin**.
+
+---
+
+# 📂 Main Script
+
+The complete SQL script is located in:
+
+```
 script_completo.sql
+```
 
-Este archivo contiene:
+This file contains:
 
-- Creación de tablas
-- Inserción de datos
-- Consultas
-- Vista
-- Permisos
-- Transacciones
+- Table creation
+- Data insertion
+- Queries
+- View creation
+- Permissions
+- Transactions
 
 ---
 
-# ▶ Cómo ejecutar el proyecto
+# ▶ How to Run the Project
 
-Este script fue probado en **PostgreSQL** utilizando **pgAdmin**.
+This script was tested using **PostgreSQL with pgAdmin**.
 
-### Paso 1 – Abrir pgAdmin
-1. Abrir pgAdmin.
-2. Conectarse al servidor PostgreSQL.
+---
 
-### Paso 2 – Crear la base de datos
-1. Clic derecho en *Databases*.
-2. Seleccionar *Create → Database*.
-3. Nombre:  
-   gestion_academica_universidad
-4. Guardar.
+## Step 1 – Open pgAdmin
 
-### Paso 3 – Abrir el Query Tool
-1. Seleccionar la base creada.
-2. Hacer clic en *Query Tool*.
+1. Open **pgAdmin**.
+2. Connect to the PostgreSQL server.
 
-### Paso 4 – Ejecutar el script
-1. Abrir el archivo:
+---
 
-   script_completo.sql
+## Step 2 – Create the Database
 
-2. Copiar todo su contenido.
-3. Pegar en el Query Tool.
-4. Ejecutar (botón ▶).
+1. Right-click on **Databases**.
+2. Select **Create → Database**.
+3. Database name:
 
-⚠ Importante:  
-Si el archivo contiene `CREATE DATABASE`, eliminar esa línea antes de ejecutar.
+```
+gestion_academica_universidad
+```
 
-## ✅ Resultado
+4. Save the database.
 
-Se implementó un sistema académico funcional, consistente y con control de integridad, cumpliendo con los criterios establecidos en la actividad.
+---
+
+## Step 3 – Open the Query Tool
+
+1. Select the created database.
+2. Click **Query Tool**.
+
+---
+
+## Step 4 – Execute the Script
+
+1. Open the file:
+
+```
+script_completo.sql
+```
+
+2. Copy the entire content.
+3. Paste it into the **Query Tool**.
+4. Execute the script using the **Run (▶) button**.
+
+---
+
+⚠ **Important**
+
+If the script contains:
+
+```
+CREATE DATABASE
+```
+
+remove that line before executing the script.
+
+---
+
+# ✅ Result
+
+A **functional academic database system** was successfully implemented, ensuring:
+
+- Data integrity
+- Referential relationships
+- Access control
+- Transaction management
+- Analytical queries
+
+The project meets all the requirements established for the assignment.
