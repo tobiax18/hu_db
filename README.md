@@ -1,112 +1,130 @@
-# Proyecto Académico – Bases de Datos SQL y NoSQL
+# Academic Project – SQL and NoSQL Databases
 
-Autor: Tobías Ath  
-Curso: Bases de Datos  
-Tecnologías: PostgreSQL | MongoDB | SQL | NoSQL  
-
----
-
-## 📌 Descripción General
-
-Este repositorio reúne el desarrollo progresivo de tres trabajos académicos enfocados en el diseño, implementación y análisis de bases de datos utilizando tanto modelos relacionales (SQL) como no relacionales (NoSQL).
-
-El proyecto permitió aplicar conceptos fundamentales como:
-
-- Modelado de datos
-- Diseño conceptual y lógico
-- Integridad y restricciones
-- Consultas avanzadas
-- Transacciones
-- Índices y optimización
-- Agregaciones y métricas en entornos NoSQL
-
-Se trabajó con PostgreSQL para el enfoque relacional y MongoDB para el enfoque documental.
+**Author:** Tobías Ath  
+**Course:** Databases  
+**Technologies:** PostgreSQL | MongoDB | SQL | NoSQL
 
 ---
 
-# 🧱 Trabajo 1 – Diseño Conceptual y Modelado de Base de Datos
+# 📌 General Description
 
-En el primer trabajo se desarrolló el diseño conceptual y lógico de una base de datos relacional.
+This repository contains the progressive development of three academic assignments focused on the **design, implementation, and analysis of databases** using both **relational (SQL)** and **non-relational (NoSQL)** models.
 
-## ✔ Actividades realizadas
+The project allowed the application of key database concepts such as:
 
-- Análisis del dominio del problema
-- Identificación de entidades y atributos
-- Definición de relaciones
-- Construcción del DER (Diagrama Entidad-Relación)
-- Transformación a modelo relacional
-- Normalización hasta Tercera Forma Normal (3FN)
+- Data modeling
+- Conceptual and logical database design
+- Data integrity and constraints
+- Advanced queries
+- Transactions
+- Indexing and optimization
+- Aggregations and metrics in NoSQL environments
 
-## 🎯 Objetivo alcanzado
-
-Comprender el proceso completo de diseño de una base de datos desde el análisis conceptual hasta su representación lógica, asegurando consistencia y eliminación de redundancias.
+The relational approach was implemented using **PostgreSQL**, while the document-oriented approach was implemented using **MongoDB**.
 
 ---
 
-# 🗄 Trabajo 2 – Sistema Académico (PostgreSQL)
+# 🧱 Assignment 1 – Conceptual Design and Database Modeling
 
-Se diseñó e implementó una base de datos relacional llamada:
+In the first assignment, the **conceptual and logical design of a relational database** was developed.
 
+## ✔ Activities Performed
+
+- Domain analysis of the problem
+- Identification of entities and attributes
+- Definition of relationships
+- Construction of the ERD (Entity-Relationship Diagram)
+- Transformation to relational model
+- Normalization up to **Third Normal Form (3NF)**
+
+## 🎯 Objective Achieved
+
+To understand the complete process of database design, from conceptual analysis to logical representation, ensuring **data consistency and elimination of redundancy**.
+
+---
+
+# 🗄 Assignment 2 – Academic System (PostgreSQL)
+
+A relational database called:
+
+```
 gestion_academica_universidad
+```
 
-## ✔ Características implementadas
+was designed and implemented using **PostgreSQL**.
 
-- Creación de tablas con PRIMARY KEY y FOREIGN KEY
-- Restricciones NOT NULL, UNIQUE y CHECK
-- Inserción de datos de prueba
-- Consultas con JOIN, GROUP BY y HAVING
-- Creación de vistas
-- Manejo de transacciones (BEGIN, ROLLBACK, COMMIT)
-- Control de acceso con roles (GRANT y REVOKE)
+## ✔ Implemented Features
 
-## 🎯 Objetivo alcanzado
+- Creation of tables using **PRIMARY KEY** and **FOREIGN KEY**
+- Constraints such as **NOT NULL, UNIQUE, and CHECK**
+- Insertion of sample data
+- Queries using **JOIN, GROUP BY, and HAVING**
+- Creation of **views**
+- Transaction management using **BEGIN, ROLLBACK, and COMMIT**
+- Access control using **roles (GRANT and REVOKE)**
 
-Aplicar correctamente:
+## 🎯 Objective Achieved
 
-- DDL
-- DML
-- DQL
-- DCL
-- TCL
+Correct application of SQL components in a realistic academic management environment:
 
-En un entorno realista de gestión académica.
+- **DDL (Data Definition Language)**
+- **DML (Data Manipulation Language)**
+- **DQL (Data Query Language)**
+- **DCL (Data Control Language)**
+- **TCL (Transaction Control Language)**
 
 ---
 
-# 🎬 Trabajo 3 – StreamHub (MongoDB)
+# 🎬 Assignment 3 – StreamHub (MongoDB)
 
-Se diseñó e implementó un modelo NoSQL para una plataforma de streaming llamada:
+A **NoSQL database model** was designed and implemented for a streaming platform called:
 
+```
 streamhub_db
+```
 
-## ✔ Características implementadas
+using **MongoDB**.
 
-- Modelado documental (usuarios, contenidos, valoraciones)
-- CRUD completo (insert, find, update, delete)
-- Uso de operadores:
-  - $gt, $lt, $eq
-  - $in
-  - $and, $or
-  - $regex
-- Creación y verificación de índices
-- Pipelines de agregación con:
-  - $group
-  - $sort
-  - $project
-  - $unwind
+## ✔ Implemented Features
 
-## 📊 Métricas generadas
+- Document-based data modeling (users, content, ratings)
+- Complete **CRUD operations**:
+  - insert
+  - find
+  - update
+  - delete
 
-- Promedio de calificación por tipo de contenido
-- Cantidad de contenidos por género
+- Use of query operators:
 
-## 🎯 Objetivo alcanzado
+```
+$gt, $lt, $eq
+$in
+$and, $or
+$regex
+```
 
-Aplicar conceptos de bases de datos NoSQL y análisis de datos semiestructurados mediante agregaciones.
+- Index creation and verification
+- Aggregation pipelines using:
+
+```
+$group
+$sort
+$project
+$unwind
+```
+
+## 📊 Generated Metrics
+
+- Average rating by content type
+- Number of contents by genre
+
+## 🎯 Objective Achieved
+
+To apply **NoSQL database concepts** and perform analysis of **semi-structured data** using aggregation pipelines.
 
 ---
 
-# 🛠 Tecnologías Utilizadas
+# 🛠 Technologies Used
 
 - PostgreSQL
 - pgAdmin
@@ -114,49 +132,53 @@ Aplicar conceptos de bases de datos NoSQL y análisis de datos semiestructurados
 - MongoDB Compass
 - Mongosh
 - Visual Studio Code
-- Git y GitHub
+- Git
+- GitHub
 
 ---
 
-# 📂 Estructura del Repositorio
+# 📂 Repository Structure
 
+```
 /trabajo-1-modelado
 /trabajo-2-sistema-academico-sql
 /trabajo-3-mongodb-streamhub
 README.md
+```
 
+Each folder contains:
 
-Cada carpeta contiene:
-
-- Archivos correspondientes a cada trabajo
-- Scripts o documentación asociada
-- README específico cuando aplica
-
----
-
-# 🎓 Competencias Desarrolladas
-
-- Diseño conceptual y lógico de bases de datos
-- Normalización hasta 3FN
-- Implementación relacional con integridad referencial
-- Uso avanzado de SQL
-- Modelado documental en MongoDB
-- Creación de índices y optimización
-- Análisis de datos con agregaciones
-- Documentación técnica profesional
+- Files related to each assignment
+- Associated scripts or documentation
+- A specific README when applicable
 
 ---
 
-# 🚀 Conclusión
+# 🎓 Skills Developed
 
-Este repositorio evidencia la evolución desde el diseño conceptual de una base de datos hasta su implementación en entornos relacionales y no relacionales.
+- Conceptual and logical database design
+- Database normalization up to **3NF**
+- Relational implementation with **referential integrity**
+- Advanced SQL querying
+- Document modeling in MongoDB
+- Index creation and query optimization
+- Data analysis using aggregation pipelines
+- Professional technical documentation
 
-Demuestra comprensión integral de:
+---
 
-✔ Modelado estructurado y semiestructurado  
-✔ Integridad de datos  
-✔ Optimización de consultas  
-✔ Análisis mediante agregaciones  
-✔ Buenas prácticas de documentación  
+# 🚀 Conclusion
 
-Proyecto académico desarrollado con fines educativos.
+This repository demonstrates the evolution from **conceptual database design** to its implementation in both **relational and non-relational environments**.
+
+It shows a comprehensive understanding of:
+
+✔ Structured and semi-structured data modeling  
+✔ Data integrity  
+✔ Query optimization  
+✔ Data analysis using aggregations  
+✔ Professional documentation practices  
+
+---
+
+**Academic project developed for educational purposes.**
