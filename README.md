@@ -1,68 +1,92 @@
-# Trabajo 1 – Diseño Conceptual y Modelo Relacional  
-## Hospital "Vida Sana"
-
-## 📌 Objetivo
-
-Diseñar una base de datos relacional para la gestión de pacientes, médicos, citas y diagnósticos del Hospital "Vida Sana", aplicando principios de modelado conceptual (DER) y lógico (Modelo Relacional), garantizando normalización hasta Tercera Forma Normal (3FN).
+# Assignment 1 – Conceptual Design and Relational Model  
+**Hospital "Vida Sana"**
 
 ---
 
-## 🧩 Modelo Conceptual (DER)
+# 📌 Objective
 
-El Diagrama Entidad–Relación define las siguientes entidades principales:
+Design a **relational database** for managing **patients, doctors, appointments, and diagnoses** for the *Hospital "Vida Sana"*.
 
-- Paciente
-- Médico
-- Cita
-- Diagnóstico
-
-### Relaciones
-
-- Un Paciente puede tener muchas Citas (1:N)
-- Un Médico puede atender muchas Citas (1:N)
-- Una Cita puede generar varios Diagnósticos (1:N)
-
-📎 Ver archivo: `DER.png` o `DER.pdf`
+The design applies principles of **conceptual modeling (Entity-Relationship Diagram – ERD)** and **logical modeling (Relational Model)**, ensuring normalization up to **Third Normal Form (3NF)**.
 
 ---
 
-## 🗄 Modelo Relacional
+# 🧩 Conceptual Model (ERD)
 
-El modelo relacional se construyó a partir del DER, manteniendo correspondencia 1:1 entre entidades y tablas.
+The **Entity–Relationship Diagram (ERD)** defines the following main entities:
 
-Se definieron:
+- **Patient**
+- **Doctor**
+- **Appointment**
+- **Diagnosis**
 
-- Claves primarias (PK)
-- Claves foráneas (FK)
-- Tipos de datos apropiados
-- Restricciones de unicidad donde corresponde
+## Relationships
+
+- A **Patient** can have multiple **Appointments** *(1:N)*
+- A **Doctor** can attend multiple **Appointments** *(1:N)*
+- An **Appointment** can generate multiple **Diagnoses** *(1:N)*
+
+📎 See files:
+
+```
+DER.png
+DER.pdf
+```
+
+These files contain the graphical representation of the conceptual database design.
 
 ---
 
-## 🔎 Normalización
+# 🗄 Relational Model
 
-El diseño cumple con:
+The **relational model** was derived directly from the ERD, maintaining a **1:1 correspondence between entities and tables**.
 
-- ✔ Primera Forma Normal (1FN): Sin atributos multivaluados.
-- ✔ Segunda Forma Normal (2FN): Sin dependencias parciales.
-- ✔ Tercera Forma Normal (3FN): Sin dependencias transitivas.
+The design includes:
 
-El modelo evita redundancia y garantiza integridad referencial.
+- **Primary Keys (PK)**
+- **Foreign Keys (FK)**
+- Appropriate **data types**
+- **Uniqueness constraints** where required
+
+This ensures that the relational schema correctly represents the conceptual design.
 
 ---
 
-## 📂 Estructura del Trabajo
+# 🔎 Normalization
 
+The database design complies with the following normalization levels:
 
+✔ **First Normal Form (1NF)**  
+No multivalued attributes. All fields contain atomic values.
+
+✔ **Second Normal Form (2NF)**  
+No partial dependencies on composite keys.
+
+✔ **Third Normal Form (3NF)**  
+No transitive dependencies between attributes.
+
+The model eliminates redundancy and guarantees **referential integrity**.
+
+---
+
+# 📂 Project Structure
+
+```
 hu_1-DER-modelo-relacional
 │
 ├── DER.png
 ├── DER.zip
 └── README.md
+```
 
+- **DER.png** → Visual representation of the ERD  
+- **DER.zip** → Compressed version of the diagram files  
+- **README.md** → Documentation of the assignment
 
 ---
 
-## ✅ Resultado
+# ✅ Result
 
-Se obtuvo un diseño consistente, normalizado hasta 3FN y coherente entre el modelo conceptual y el modelo relacional, listo para su futura implementación en un sistema gestor de bases de datos.
+A **consistent relational database design** was obtained, normalized up to **Third Normal Form (3NF)** and maintaining coherence between the **conceptual model (ERD)** and the **relational schema**.
+
+The design is ready for future implementation in a **Database Management System (DBMS)**.
