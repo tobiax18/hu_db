@@ -140,10 +140,10 @@ To apply **NoSQL database concepts** and perform analysis of **semi-structured d
 # 📂 Repository Structure
 
 ```
-/trabajo-1-modelado
-/trabajo-2-sistema-academico-sql
-/trabajo-3-mongodb-streamhub
-README.md
+/hu_1-DER-modelo-relacional
+/hu_2-sistema-academico-sql
+/hu_3-mongodb-streamhub
+/main
 ```
 
 Each folder contains:
